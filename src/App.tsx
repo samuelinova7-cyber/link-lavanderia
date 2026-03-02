@@ -4,7 +4,8 @@ import {
   Instagram, Facebook, Star, ChevronDown, 
   Droplets, Wind, ShieldCheck, Zap, 
   Building2, Smartphone, CreditCard, 
-  Volume2, VolumeX, ExternalLink, MessageCircle
+  Volume2, VolumeX, ExternalLink, MessageCircle,
+  Plus, Minus
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -44,10 +45,52 @@ const REVIEWS = [
 ];
 
 const UNITS = [
-  { name: "Lauro de Freitas", address: "Av. Santos Dumont, 1234 - Shopping Link", status: "Aberto" },
-  { name: "Bonocô", address: "Av. Mário Leal Ferreira, 567 - Posto Shell", status: "Aberto" },
-  { name: "Ipitanga", address: "Rua Praia de Ipitanga, 89 - Galeria Mar", status: "Aberto" },
-  { name: "Recreio", address: "Av. das Américas, 8900 - Condomínio Blue", status: "Aberto" }
+  { name: "Lauro de Freitas", address: "Av. Santos Dumont, 1234 - Shopping Link", status: "06:00h às 22:00h" },
+  { name: "Bonocô", address: "Av. Mário Leal Ferreira, 567 - Posto Shell", status: "24 Horas" },
+  { name: "Ipitanga", address: "Rua Praia de Ipitanga, 89 - Galeria Mar", status: "06:00h às 22:00h" }
+];
+
+const FAQS = [
+  {
+    question: "Como funciona o autoatendimento?",
+    answer: "É muito simples! Você chega na unidade, mede suas roupas no cesto medidor, escolhe a máquina disponível, realiza o pagamento no totem (via cartão ou Pix) e inicia o ciclo desejado. Tudo de forma digital e intuitiva."
+  },
+  {
+    question: "Preciso levar sabão e amaciante?",
+    answer: "Não! Nossas máquinas já dosam automaticamente sabão OMO e amaciante Comfort em todos os ciclos de lavagem. Você não precisa se preocupar em levar nenhum produto."
+  },
+  {
+    question: "Quanto tempo demora para lavar e secar?",
+    answer: "O tempo médio total é de 75 minutos. O ciclo de lavagem dura cerca de 30 a 35 minutos, e o ciclo de secagem leva aproximadamente 40 a 45 minutos, dependendo do tipo de tecido."
+  },
+  {
+    question: "Qual a capacidade das máquinas?",
+    answer: "Nossas máquinas industriais suportam até 10kg de roupas secas por ciclo. Disponibilizamos um cesto medidor na loja para que você saiba exatamente a quantidade ideal para uma lavagem perfeita."
+  },
+  {
+    question: "Posso lavar edredons e cobertores?",
+    answer: "Sim! Nossas máquinas são ideais para lavar itens volumosos como edredons (até tamanho Queen), cobertores e tapetes leves. Lembre-se apenas de respeitar o limite do cesto medidor."
+  },
+  {
+    question: "Quais são as formas de pagamento?",
+    answer: "Aceitamos pagamentos via Pix, cartões de crédito e débito diretamente no totem de autoatendimento da loja. Não aceitamos dinheiro em espécie por questões de segurança."
+  },
+  {
+    question: "As unidades funcionam todos os dias?",
+    answer: "Sim! Funcionamos de domingo a domingo. A unidade Bonocô é 24 horas, enquanto as unidades Lauro de Freitas e Ipitanga operam das 06:00h às 22:00h."
+  },
+  {
+    question: "É seguro deixar minhas roupas lavando?",
+    answer: "Sim. Nossas unidades contam com monitoramento por câmeras 24 horas e as máquinas travam a porta durante todo o ciclo de funcionamento, garantindo a segurança das suas peças."
+  },
+  {
+    question: "O que não posso lavar nas máquinas?",
+    answer: "Para garantir a higiene e o bom funcionamento, não é permitido lavar roupas com excesso de pelos de animais, tapetes pesados de borracha, calçados, panos de chão muito sujos ou itens com produtos inflamáveis."
+  },
+  {
+    question: "Como funciona a Link para condomínios?",
+    answer: "Instalamos e operamos uma lavanderia completa dentro do seu prédio sem custo para o condomínio. Os moradores ganham praticidade, o imóvel valoriza, e o condomínio ainda recebe cashback das lavagens para investir em melhorias."
+  }
 ];
 
 // --- Components ---
@@ -114,7 +157,7 @@ const Header = () => {
     <header className="fixed top-0 w-full z-50">
       <div className="bg-navy text-white py-2 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-center overflow-hidden whitespace-nowrap border-b border-white/5">
         <div className="animate-marquee inline-block">
-          RÁPIDO • PRÁTICO • ECONÔMICO • PRODUTOS OMO E COMFORT INCLUSOS • ABERTO DAS 06H ÀS 22H • RÁPIDO • PRÁTICO • ECONÔMICO • PRODUTOS OMO E COMFORT INCLUSOS • ABERTO DAS 06H ÀS 22H •
+          RÁPIDO • PRÁTICO • ECONÔMICO • PRODUTOS OMO E COMFORT INCLUSOS • UNIDADES 24H E DAS 06H ÀS 22H • RÁPIDO • PRÁTICO • ECONÔMICO • PRODUTOS OMO E COMFORT INCLUSOS • UNIDADES 24H E DAS 06H ÀS 22H •
         </div>
       </div>
       <Navbar scrolled={scrolled} />
@@ -137,18 +180,18 @@ const Hero = () => (
       >
         <div className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full mb-8 border border-gray-200">
           <div className="w-2 h-2 bg-gold rounded-full animate-pulse" />
-          <span className="text-xs font-bold text-navy/60 uppercase tracking-widest">Tecnologia profissional • Cuidado especializado</span>
+          <span className="text-xs font-bold text-navy/60 uppercase tracking-widest">Experiência de lavanderia em suas mãos!</span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-navy mb-8 leading-[0.9] tracking-tighter uppercase">
-          SUA ROUPA <span className="text-gold">LIMPA</span>, <br />
-          CHEIROSA E <br />
-          <span className="text-gold">PRONTA</span> <br />
-          PARA VOCÊ.
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-navy mb-8 leading-[1.1] tracking-tighter uppercase">
+          CUIDADO COM SUAS <span className="text-gold">ROUPAS</span>, <br />
+          PRATICIDADE NO SEU <span className="text-gold">DIA</span>, <br />
+          E TEMPO LIVRE <br />
+          PARA VOCÊ!
         </h1>
 
         <p className="text-gray-500 text-lg md:text-xl mb-10 max-w-xl font-medium leading-relaxed">
-          Lavagem técnica especializada com produtos de alta performance e um processo totalmente seguro para cada tipo de tecido. Rápido, prático e econômico.
+          Com produtos de alta performance e um processo seguro para todos os tipos de roupa, você pode realizar a lavagem e secagem de forma rápida, prática e econômica.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -200,64 +243,34 @@ const Hero = () => (
 );
 
 const About = () => {
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
   return (
     <section id="sobre" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
-        <div className="relative aspect-[9/16] max-w-sm mx-auto w-full rounded-3xl overflow-hidden shadow-2xl group">
-          <video 
-            ref={videoRef}
-            autoPlay muted loop playsInline 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          >
-            <source src={VIDEOS.about} type="video/mp4" />
-          </video>
-          <button 
-            onClick={toggleMute}
-            className="absolute bottom-6 right-6 bg-navy/80 backdrop-blur-md text-white p-3 rounded-full hover:bg-navy transition-colors z-20"
-          >
-            {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
-          </button>
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent pointer-events-none" />
-        </div>
-
-        <div>
-          <span className="text-navy font-bold uppercase tracking-widest text-sm mb-4 block">Sobre a Link</span>
-          <h2 className="text-4xl md:text-6xl font-bold text-navy mb-8 leading-tight">
-            Devolvendo o <span className="text-gold italic font-serif">tempo</span> para você.
-          </h2>
-          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-            A Link Lavanderia Compartilhada nasceu para transformar a tarefa doméstica de lavar roupas em uma experiência de conveniência. 
-            Utilizamos máquinas industriais de alta performance que lavam e secam suas roupas em ciclos rápidos de 30 minutos.
-          </p>
-          
-          <div className="grid grid-cols-2 gap-8 mb-10">
-            <div className="flex flex-col gap-2">
-              <CheckCircle2 className="text-gold" size={32} />
-              <h4 className="font-bold text-navy">Produtos Inclusos</h4>
-              <p className="text-sm text-gray-500">Sabão e amaciante OMO e Comfort inclusos em todos os ciclos.</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <ShieldCheck className="text-gold" size={32} />
-              <h4 className="font-bold text-navy">Higiene Total</h4>
-              <p className="text-sm text-gray-500">Máquinas esterilizadas a cada ciclo para sua total segurança.</p>
-            </div>
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        <span className="text-navy font-bold uppercase tracking-widest text-sm mb-4 block">Sobre a Link</span>
+        <h2 className="text-4xl md:text-6xl font-bold text-navy mb-8 leading-tight">
+          Devolvendo seu <span className="text-gold italic font-serif">tempo</span>.
+        </h2>
+        <p className="text-gray-600 text-lg mb-12 leading-relaxed max-w-3xl mx-auto">
+          A Link Lavanderia Compartilhada foi criada para reinventar a rotina de lavar roupas, tornando-a uma experiência prática e conveniente. 
+          Com nossas máquinas industriais de última geração, suas roupas são lavadas e secas em um tempo médio total de 75 minutos, liberando mais tempo para você aproveitar o que realmente importa.
+        </p>
+        
+        <div className="grid md:grid-cols-2 gap-8 mb-12 text-left max-w-2xl mx-auto">
+          <div className="flex flex-col gap-2 bg-gray-50 p-6 rounded-2xl border border-gray-100">
+            <CheckCircle2 className="text-gold" size={32} />
+            <h4 className="font-bold text-navy text-xl">Produtos Inclusos</h4>
+            <p className="text-sm text-gray-500">Sabão e amaciante OMO e Comfort inclusos em todos os ciclos.</p>
           </div>
-
-          <button className="bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy/90 transition-colors flex items-center gap-2">
-            Saiba Mais <ExternalLink size={18} />
-          </button>
+          <div className="flex flex-col gap-2 bg-gray-50 p-6 rounded-2xl border border-gray-100">
+            <ShieldCheck className="text-gold" size={32} />
+            <h4 className="font-bold text-navy text-xl">Higiene Total</h4>
+            <p className="text-sm text-gray-500">Máquinas esterilizadas a cada ciclo para sua total segurança.</p>
+          </div>
         </div>
+
+        <button className="bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy/90 transition-colors flex items-center gap-2 mx-auto">
+          Saiba Mais <ExternalLink size={18} />
+        </button>
       </div>
     </section>
   );
@@ -280,10 +293,10 @@ const Condos = () => {
         <div className="order-2 md:order-1">
           <span className="text-gold font-bold uppercase tracking-widest text-sm mb-4 block">Para Síndicos e Moradores</span>
           <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
-            Lavanderia no seu <span className="text-gold italic font-serif">Condomínio</span>.
+            Facilite o dia a dia no seu <span className="text-gold italic font-serif">condomínio</span>.
           </h2>
           <p className="text-white/70 text-lg mb-10">
-            Leve a praticidade da Link para dentro do seu prédio. Valorize seu imóvel e ofereça um serviço essencial para os moradores com custo zero para o condomínio.
+            Com a Link, a lavanderia se torna uma conveniência valorizada por todos os moradores. Ofereça um serviço prático e eficiente, enquanto o condomínio acumula cashback, que pode ser utilizado para melhorias nas áreas comuns. Invista na qualidade de vida da sua comunidade e valorize ainda mais seu patrimônio!
           </p>
           
           <div className="space-y-6 mb-10">
@@ -308,7 +321,7 @@ const Condos = () => {
           </div>
 
           <button className="bg-gold text-navy px-10 py-4 rounded-xl font-bold hover:scale-105 transition-transform">
-            Levar para meu condomínio
+            Solicite uma proposta
           </button>
         </div>
 
@@ -447,8 +460,8 @@ const InstagramSection = () => (
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[VIDEOS.insta1, VIDEOS.insta2, VIDEOS.insta3].map((video, idx) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {[VIDEOS.insta2, VIDEOS.insta3].map((video, idx) => (
           <div key={idx} className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl group">
             <video 
               autoPlay muted loop playsInline 
@@ -546,6 +559,57 @@ const ReviewsMarquee = () => (
   </section>
 );
 
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <section className="py-24 bg-gray-50">
+      <div className="max-w-3xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4">Dúvidas Frequentes</h2>
+          <p className="text-gray-500 text-lg">Tudo o que você precisa saber sobre a Link Lavanderia.</p>
+        </div>
+
+        <div className="space-y-4">
+          {FAQS.map((faq, idx) => (
+            <div 
+              key={idx} 
+              className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${openIndex === idx ? 'border-gold shadow-md' : 'border-gray-200 hover:border-navy/20'}`}
+            >
+              <button 
+                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                className="w-full flex items-center justify-between p-6 text-left"
+              >
+                <span className={`font-bold text-lg pr-8 ${openIndex === idx ? 'text-navy' : 'text-gray-700'}`}>
+                  {faq.question}
+                </span>
+                <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === idx ? 'bg-gold text-navy' : 'bg-gray-100 text-gray-500'}`}>
+                  {openIndex === idx ? <Minus size={16} /> : <Plus size={16} />}
+                </div>
+              </button>
+              
+              <AnimatePresence>
+                {openIndex === idx && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4 mt-2">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Footer = () => (
   <footer className="bg-navy text-white py-20">
     <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12 mb-16">
@@ -576,8 +640,8 @@ const Footer = () => (
       <div>
         <h4 className="font-bold text-lg mb-6">Suporte</h4>
         <ul className="space-y-4 text-white/60">
-          <li className="flex items-center gap-2"><Phone size={16} /> (71) 99999-9999</li>
-          <li className="flex items-center gap-2"><Clock size={16} /> Diariamente: 06h às 22h</li>
+          <li className="flex items-center gap-2"><Phone size={16} /> (71) 99688-7151</li>
+          <li className="flex items-center gap-2"><Clock size={16} /> 06h às 22h (Bonocô 24h)</li>
           <li className="flex items-center gap-2"><ShieldCheck size={16} /> Termos de Uso</li>
         </ul>
       </div>
@@ -591,7 +655,7 @@ const Footer = () => (
 
 const WhatsAppButton = () => (
   <a 
-    href="https://wa.me/5571999999999" 
+    href="https://wa.me/5571996887151" 
     target="_blank" 
     rel="noopener noreferrer"
     className="fixed bottom-8 right-8 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform group"
@@ -617,6 +681,7 @@ export default function App() {
       <Pricing />
       <InstagramSection />
       <ReviewsMarquee />
+      <FAQSection />
       <UnitsSection />
       <Footer />
       <WhatsAppButton />
