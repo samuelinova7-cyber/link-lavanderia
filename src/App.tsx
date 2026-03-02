@@ -42,9 +42,9 @@ const REVIEWS = [
 ];
 
 const UNITS = [
-  { name: "Lauro de Freitas", address: "Av. Santos Dumont, 1234 - Shopping Link", status: "06:00h às 22:00h", mapLink: "https://share.google/PI4yI84drtovjoVLR" },
-  { name: "Bonocô", address: "Av. Mário Leal Ferreira, 567 - Posto Shell", status: "24 Horas", mapLink: "https://share.google/FAC60qIEDIhNC1744" },
-  { name: "Ipitanga", address: "Rua Praia de Ipitanga, 89 - Galeria Mar", status: "06:00h às 22:00h", mapLink: "https://share.google/cNiKf5e2Tyh6Q5MLK" }
+  { name: "Lauro de Freitas - Unidade Mercadão da Bahia", address: "Av. Santos Dumont, 1234 - Shopping Link", status: "06:00h às 22:00h", mapLink: "https://share.google/PI4yI84drtovjoVLR" },
+  { name: "Salvador - Unidade Bonocô", address: "Av. Mário Leal Ferreira, 567 - Posto Shell", status: "24 Horas", mapLink: "https://share.google/FAC60qIEDIhNC1744" },
+  { name: "Lauro de Freitas - Unidade Ipitanga", address: "Rua Praia de Ipitanga, 89 - Galeria Mar", status: "06:00h às 22:00h", mapLink: "https://share.google/cNiKf5e2Tyh6Q5MLK" }
 ];
 
 const FAQS = [
@@ -597,7 +597,7 @@ const ReviewsMarquee = () => (
       <h2 className="text-4xl font-bold text-navy text-center xl:text-left">O que dizem nossos clientes</h2>
       <div className="flex flex-col sm:flex-row gap-3 w-full xl:w-auto">
         <a href="https://share.google/PI4yI84drtovjoVLR" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
-          <Star size={16} fill="currentColor" /> Avaliar Lauro de Freitas
+          <Star size={16} fill="currentColor" /> Avaliar Mercadão da Bahia
         </a>
         <a href="https://share.google/FAC60qIEDIhNC1744" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
           <Star size={16} fill="currentColor" /> Avaliar Bonocô
