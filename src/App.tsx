@@ -27,9 +27,6 @@ const VIDEOS = {
 const HOW_IT_WORKS_IMAGES = [
   "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-03-02%20110521.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDMtMDIgMTEwNTIxLnBuZyIsImlhdCI6MTc3MjQ2MDQwNSwiZXhwIjoyMDI0NzQ4NDA1fQ.A0RPQz5vzK_Dd1HHDn8GP3g5zdlcweBavNEaLgP58JQ",
   "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-03-02%20110459.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDMtMDIgMTEwNDU5LnBuZyIsImlhdCI6MTc3MjQ2MDQzNCwiZXhwIjoxOTYxNjc2NDM0fQ.6JgJBmqwmtusj6SmJcwfkgJvLMV3YQGxoTM_62S4xUA",
-  // Passo 3 removido
-  "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-03-02%20110417.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDMtMDIgMTEwNDE3LnBuZyIsImlhdCI6MTc3MjQ2MDQ4MCwiZXhwIjoxOTkzMjEyNDgwfQ.vVXZk6SqXLI1WDBsLTPfH-NT92gYo96XLCHH37OEO3Y",
-  "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-03-02%20110348.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDMtMDIgMTEwMzQ4LnBuZyIsImlhdCI6MTc3MjQ2MDk5OSwiZXhwIjoxOTkzMjEyNDk5fQ.aaoKn4OHrSCd-SsSCp8dHXLsKZBEAzUTKiDfY7-hscE",
   "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-03-02%20110303.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDMtMDIgMTEwMzAzLnBuZyIsImlhdCI6MTc3MjQ2MDUyMiwiZXhwIjoxOTYxNjc2NTIyfQ.Q2kcigzHh-dhAPN2n3-gCaW89V0HhA3JlwTa6txzaSo"
 ];
 
@@ -243,34 +240,64 @@ const Hero = () => (
 );
 
 const About = () => {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <section id="sobre" className="py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <span className="text-navy font-bold uppercase tracking-widest text-sm mb-4 block">Sobre a Link</span>
-        <h2 className="text-4xl md:text-6xl font-bold text-navy mb-8 leading-tight">
-          Devolvendo seu <span className="text-gold italic font-serif">tempo</span>.
-        </h2>
-        <p className="text-gray-600 text-lg mb-12 leading-relaxed max-w-3xl mx-auto">
-          A Link Lavanderia Compartilhada foi criada para reinventar a rotina de lavar roupas, tornando-a uma experiência prática e conveniente. 
-          Com nossas máquinas industriais de última geração, suas roupas são lavadas e secas em um tempo médio total de 75 minutos, liberando mais tempo para você aproveitar o que realmente importa.
-        </p>
-        
-        <div className="grid md:grid-cols-2 gap-8 mb-12 text-left max-w-2xl mx-auto">
-          <div className="flex flex-col gap-2 bg-gray-50 p-6 rounded-2xl border border-gray-100">
-            <CheckCircle2 className="text-gold" size={32} />
-            <h4 className="font-bold text-navy text-xl">Produtos Inclusos</h4>
-            <p className="text-sm text-gray-500">Sabão e amaciante OMO e Comfort inclusos em todos os ciclos.</p>
-          </div>
-          <div className="flex flex-col gap-2 bg-gray-50 p-6 rounded-2xl border border-gray-100">
-            <ShieldCheck className="text-gold" size={32} />
-            <h4 className="font-bold text-navy text-xl">Higiene Total</h4>
-            <p className="text-sm text-gray-500">Máquinas esterilizadas a cada ciclo para sua total segurança.</p>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+        <div className="relative aspect-[9/16] max-w-sm mx-auto w-full rounded-3xl overflow-hidden shadow-2xl group">
+          <video 
+            ref={videoRef}
+            autoPlay muted loop playsInline 
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          >
+            <source src={VIDEOS.about} type="video/mp4" />
+          </video>
+          <button 
+            onClick={toggleMute}
+            className="absolute bottom-6 right-6 bg-navy/80 backdrop-blur-md text-white p-3 rounded-full hover:bg-navy transition-colors z-20"
+          >
+            {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+          </button>
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent pointer-events-none" />
         </div>
 
-        <button className="bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy/90 transition-colors flex items-center gap-2 mx-auto">
-          Saiba Mais <ExternalLink size={18} />
-        </button>
+        <div>
+          <span className="text-navy font-bold uppercase tracking-widest text-sm mb-4 block">Sobre a Link</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-navy mb-8 leading-tight">
+            Devolvendo seu <span className="text-gold italic font-serif">tempo</span>.
+          </h2>
+          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+            A Link Lavanderia Compartilhada foi criada para reinventar a rotina de lavar roupas, tornando-a uma experiência prática e conveniente. 
+            Com nossas máquinas industriais de última geração, suas roupas são lavadas e secas em um tempo médio total de 75 minutos, liberando mais tempo para você aproveitar o que realmente importa.
+          </p>
+          
+          <div className="grid grid-cols-2 gap-8 mb-10">
+            <div className="flex flex-col gap-2">
+              <CheckCircle2 className="text-gold" size={32} />
+              <h4 className="font-bold text-navy">Produtos Inclusos</h4>
+              <p className="text-sm text-gray-500">Sabão e amaciante OMO e Comfort inclusos em todos os ciclos.</p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <ShieldCheck className="text-gold" size={32} />
+              <h4 className="font-bold text-navy">Higiene Total</h4>
+              <p className="text-sm text-gray-500">Máquinas esterilizadas a cada ciclo para sua total segurança.</p>
+            </div>
+          </div>
+
+          <button className="bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy/90 transition-colors flex items-center gap-2">
+            Saiba Mais <ExternalLink size={18} />
+          </button>
+        </div>
       </div>
     </section>
   );
@@ -460,9 +487,9 @@ const InstagramSection = () => (
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {[VIDEOS.insta2, VIDEOS.insta3].map((video, idx) => (
-          <div key={idx} className="relative aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl group">
+      <div className="flex justify-center max-w-4xl mx-auto">
+        {[VIDEOS.insta3].map((video, idx) => (
+          <div key={idx} className="relative aspect-[9/16] w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl group">
             <video 
               autoPlay muted loop playsInline 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
