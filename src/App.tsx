@@ -5,7 +5,7 @@ import {
   Droplets, Wind, ShieldCheck, Zap, 
   Building2, Smartphone, CreditCard, 
   Volume2, VolumeX, ExternalLink, MessageCircle,
-  Plus, Minus
+  Plus, Minus, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -42,9 +42,9 @@ const REVIEWS = [
 ];
 
 const UNITS = [
-  { name: "Lauro de Freitas", address: "Av. Santos Dumont, 1234 - Shopping Link", status: "06:00h às 22:00h" },
-  { name: "Bonocô", address: "Av. Mário Leal Ferreira, 567 - Posto Shell", status: "24 Horas" },
-  { name: "Ipitanga", address: "Rua Praia de Ipitanga, 89 - Galeria Mar", status: "06:00h às 22:00h" }
+  { name: "Lauro de Freitas", address: "Av. Santos Dumont, 1234 - Shopping Link", status: "06:00h às 22:00h", mapLink: "https://share.google/PI4yI84drtovjoVLR" },
+  { name: "Bonocô", address: "Av. Mário Leal Ferreira, 567 - Posto Shell", status: "24 Horas", mapLink: "https://share.google/FAC60qIEDIhNC1744" },
+  { name: "Ipitanga", address: "Rua Praia de Ipitanga, 89 - Galeria Mar", status: "06:00h às 22:00h", mapLink: "https://share.google/cNiKf5e2Tyh6Q5MLK" }
 ];
 
 const FAQS = [
@@ -109,9 +109,9 @@ const Navbar = ({ scrolled }: { scrolled: boolean }) => {
           <a href="#como-funciona" className="hover:text-gold transition-colors">Como Funciona</a>
           <a href="#precos" className="hover:text-gold transition-colors">Preços</a>
           <a href="#unidades" className="hover:text-gold transition-colors">Unidades</a>
-          <button className="bg-gold text-navy px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2 shadow-lg shadow-gold/20">
+          <a href="https://wa.me/5571996887151" target="_blank" rel="noopener noreferrer" className="bg-gold text-navy px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2 shadow-lg shadow-gold/20">
             <Phone size={16} /> Contato
-          </button>
+          </a>
         </div>
 
         <button className={`md:hidden transition-colors ${scrolled || isOpen ? 'text-white' : 'text-navy'}`} onClick={() => setIsOpen(!isOpen)}>
@@ -131,9 +131,9 @@ const Navbar = ({ scrolled }: { scrolled: boolean }) => {
             <a href="#como-funciona" onClick={() => setIsOpen(false)} className="text-white text-lg font-medium">Como Funciona</a>
             <a href="#precos" onClick={() => setIsOpen(false)} className="text-white text-lg font-medium">Preços</a>
             <a href="#unidades" onClick={() => setIsOpen(false)} className="text-white text-lg font-medium">Unidades</a>
-            <button className="bg-gold text-navy w-full py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+            <a href="https://wa.me/5571996887151" target="_blank" rel="noopener noreferrer" className="bg-gold text-navy w-full py-3 rounded-xl font-bold flex items-center justify-center gap-2">
               <Phone size={18} /> WhatsApp
-            </button>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -192,12 +192,12 @@ const Hero = () => (
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="bg-navy text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-gold hover:text-navy transition-all shadow-xl shadow-navy/10 flex items-center justify-center gap-2 group">
+          <a href="https://wa.me/5571996887151" target="_blank" rel="noopener noreferrer" className="bg-navy text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-gold hover:text-navy transition-all shadow-xl shadow-navy/10 flex items-center justify-center gap-2 group">
             Agendar pelo WhatsApp <ChevronDown className="rotate-[-90deg] group-hover:translate-x-1 transition-transform" size={20} />
-          </button>
-          <button className="bg-white text-navy border-2 border-gray-100 px-10 py-5 rounded-2xl font-bold text-lg hover:border-gold transition-all flex items-center justify-center">
+          </a>
+          <a href="#como-funciona" className="bg-white text-navy border-2 border-gray-100 px-10 py-5 rounded-2xl font-bold text-lg hover:border-gold transition-all flex items-center justify-center">
             Ver Planos
-          </button>
+          </a>
         </div>
       </motion.div>
 
@@ -290,13 +290,13 @@ const About = () => {
             <div className="flex flex-col gap-2">
               <ShieldCheck className="text-gold" size={32} />
               <h4 className="font-bold text-navy">Higiene Total</h4>
-              <p className="text-sm text-gray-500">Máquinas esterilizadas a cada ciclo para sua total segurança.</p>
+              <p className="text-sm text-gray-500">Máquinas rigorosamente higienizadas para garantir a sua total segurança.</p>
             </div>
           </div>
 
-          <button className="bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy/90 transition-colors flex items-center gap-2">
+          <a href="https://wa.me/5571996887151" target="_blank" rel="noopener noreferrer" className="bg-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-navy/90 transition-colors flex items-center gap-2 w-fit">
             Saiba Mais <ExternalLink size={18} />
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -341,15 +341,15 @@ const Condos = () => {
                 <Zap size={24} />
               </div>
               <div>
-                <h4 className="font-bold text-xl">Instalação Rápida</h4>
-                <p className="text-white/50">Nós cuidamos de toda a infraestrutura, manutenção e operação.</p>
+                <h4 className="font-bold text-xl">Instalação prática</h4>
+                <p className="text-white/50">Oferecemos todo o suporte técnico necessário para garantir uma infraestrutura adequada à instalação das máquinas.</p>
               </div>
             </div>
           </div>
 
-          <button className="bg-gold text-navy px-10 py-4 rounded-xl font-bold hover:scale-105 transition-transform">
+          <a href="https://wa.me/5571996887151" target="_blank" rel="noopener noreferrer" className="inline-block bg-gold text-navy px-10 py-4 rounded-xl font-bold hover:scale-105 transition-transform">
             Solicite uma proposta
-          </button>
+          </a>
         </div>
 
         <div className="order-1 md:order-2 relative aspect-[9/16] max-w-sm mx-auto w-full rounded-3xl overflow-hidden shadow-2xl shadow-gold/10">
@@ -373,55 +373,91 @@ const Condos = () => {
   );
 };
 
-const HowItWorks = () => (
-  <section id="como-funciona" className="py-24 bg-gray-50 overflow-hidden">
-    <div className="max-w-7xl mx-auto px-4 mb-16 text-center">
-      <h2 className="text-4xl md:text-6xl font-bold text-navy mb-4">Como Funciona</h2>
-      <p className="text-gray-500 text-lg max-w-2xl mx-auto">Simples, intuitivo e 100% digital. Veja como é fácil lavar suas roupas na Link.</p>
-    </div>
+const HowItWorks = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-    <div className="relative">
-      <div className="flex overflow-x-auto no-scrollbar gap-6 px-4 pb-12 snap-x snap-mandatory animate-marquee">
-        {[...HOW_IT_WORKS_IMAGES, ...HOW_IT_WORKS_IMAGES].map((img, idx) => (
-          <div key={idx} className="flex-none w-[280px] md:w-[320px] aspect-[9/16] rounded-3xl overflow-hidden shadow-xl snap-center bg-gray-200 border-4 border-white">
-            <img 
-              src={img} 
-              alt={`Passo ${idx + 1}`} 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = `https://picsum.photos/seed/laundry${idx}/1080/1920`;
-              }}
-            />
-          </div>
-        ))}
-      </div>
-      
-      <div className="flex justify-center gap-2 mt-4 animate-pulse">
-        <span className="text-navy/40 text-sm font-bold uppercase tracking-widest">Arraste para o lado</span>
-      </div>
-    </div>
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.8;
+      const scrollTo = direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount;
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    }
+  };
 
-    <div className="max-w-4xl mx-auto px-4 grid md:grid-cols-3 gap-8 mt-16">
-      <div className="text-center">
-        <div className="w-12 h-12 bg-gold text-navy rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">1</div>
-        <h4 className="font-bold text-navy text-xl mb-2">Medir</h4>
-        <p className="text-gray-500">Use nosso cesto medidor para verificar a carga ideal.</p>
+  return (
+    <section id="como-funciona" className="py-24 bg-gray-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 mb-16 text-center">
+        <h2 className="text-4xl md:text-6xl font-bold text-navy mb-4">Como Funciona</h2>
+        <p className="text-gray-500 text-lg max-w-2xl mx-auto">Simples, intuitivo e 100% digital. Veja como é fácil lavar suas roupas na Link.</p>
       </div>
-      <div className="text-center">
-        <div className="w-12 h-12 bg-gold text-navy rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">2</div>
-        <h4 className="font-bold text-navy text-xl mb-2">Escolher</h4>
-        <p className="text-gray-500">Selecione o ciclo no totem e realize o pagamento.</p>
+
+      <div className="relative group max-w-7xl mx-auto">
+        {/* Navigation Arrows */}
+        <button 
+          onClick={() => scroll('left')}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-md p-4 rounded-full shadow-xl text-navy hover:bg-gold transition-all opacity-0 group-hover:opacity-100 hidden md:flex hover:scale-110 active:scale-95"
+          aria-label="Anterior"
+        >
+          <ChevronLeft size={28} />
+        </button>
+        <button 
+          onClick={() => scroll('right')}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-md p-4 rounded-full shadow-xl text-navy hover:bg-gold transition-all opacity-0 group-hover:opacity-100 hidden md:flex hover:scale-110 active:scale-95"
+          aria-label="Próximo"
+        >
+          <ChevronRight size={28} />
+        </button>
+
+        <div 
+          ref={scrollRef}
+          className="flex overflow-x-auto no-scrollbar gap-6 px-4 md:px-12 pb-12 snap-x snap-mandatory scroll-smooth"
+        >
+          {HOW_IT_WORKS_IMAGES.map((img, idx) => (
+            <div key={idx} className="flex-none w-[280px] md:w-[320px] aspect-[9/16] rounded-3xl overflow-hidden shadow-xl snap-center bg-gray-200 border-4 border-white">
+              <img 
+                src={img} 
+                alt={`Passo ${idx + 1}`} 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = `https://picsum.photos/seed/laundry${idx}/1080/1920`;
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        
+        <div className="flex justify-center gap-2 mt-4">
+          <span className="text-navy/40 text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+            <ChevronLeft size={14} className="animate-bounce-x" />
+            Arraste para o lado
+            <ChevronRight size={14} className="animate-bounce-x-reverse" />
+          </span>
+        </div>
       </div>
-      <div className="text-center">
-        <div className="w-12 h-12 bg-gold text-navy rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">3</div>
-        <h4 className="font-bold text-navy text-xl mb-2">Relaxar</h4>
-        <p className="text-gray-500">Em 30 minutos suas roupas estarão prontas. Aproveite nosso Wi-Fi!</p>
+
+      <div className="max-w-4xl mx-auto px-4 grid md:grid-cols-3 gap-8 mt-16">
+        <div className="text-center">
+          <div className="w-12 h-12 bg-gold text-navy rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">1</div>
+          <h4 className="font-bold text-navy text-xl mb-2">Medir</h4>
+          <p className="text-gray-500">Use nosso cesto medidor para verificar a carga ideal.</p>
+        </div>
+        <div className="text-center">
+          <div className="w-12 h-12 bg-gold text-navy rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">2</div>
+          <h4 className="font-bold text-navy text-xl mb-2">Escolher</h4>
+          <p className="text-gray-500">Selecione o ciclo no totem e realize o pagamento.</p>
+        </div>
+        <div className="text-center">
+          <div className="w-12 h-12 bg-gold text-navy rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4">3</div>
+          <h4 className="font-bold text-navy text-xl mb-2">Relaxar</h4>
+          <p className="text-gray-500">Em 30 minutos suas roupas estarão prontas. Aproveite nosso Wi-Fi!</p>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Pricing = () => (
   <section id="precos" className="py-24 bg-white">
@@ -446,9 +482,9 @@ const Pricing = () => (
             <span className="text-xl font-medium">R$</span>
             <span className="text-6xl font-bold">18,95</span>
           </div>
-          <button className="w-full bg-white text-navy py-4 rounded-xl font-bold hover:bg-gold transition-colors">
+          <a href="https://wa.me/5571996887151" target="_blank" rel="noopener noreferrer" className="w-full bg-white text-navy py-4 rounded-xl font-bold hover:bg-gold transition-colors block text-center">
             Lavar Agora
-          </button>
+          </a>
         </motion.div>
 
         <motion.div 
@@ -465,9 +501,9 @@ const Pricing = () => (
             <span className="text-xl font-medium">R$</span>
             <span className="text-6xl font-bold">18,95</span>
           </div>
-          <button className="w-full bg-navy text-white py-4 rounded-xl font-bold hover:bg-navy/90 transition-colors">
+          <a href="https://wa.me/5571996887151" target="_blank" rel="noopener noreferrer" className="w-full bg-navy text-white py-4 rounded-xl font-bold hover:bg-navy/90 transition-colors block text-center">
             Secar Agora
-          </button>
+          </a>
         </motion.div>
       </div>
     </div>
@@ -482,9 +518,9 @@ const InstagramSection = () => (
           <h2 className="text-4xl md:text-6xl font-bold text-navy mb-4">No Instagram</h2>
           <p className="text-gray-500 text-lg">Siga a @linklavanderia e fique por dentro das novidades.</p>
         </div>
-        <button className="bg-navy text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-navy/90 transition-colors">
+        <a href="https://www.instagram.com/linklavanderia?igsh=MTVndndxb25rM2F2NQ==" target="_blank" rel="noopener noreferrer" className="bg-navy text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-navy/90 transition-colors">
           <Instagram size={20} /> Seguir no Instagram
-        </button>
+        </a>
       </div>
 
       <div className="flex justify-center max-w-4xl mx-auto">
@@ -544,8 +580,8 @@ const UnitsSection = () => (
                 <MapPin size={16} className="shrink-0 text-navy/30" /> {unit.address}
               </p>
               <div className="flex gap-2">
-                <button className="flex-1 bg-gray-100 text-navy py-2 rounded-lg text-xs font-bold hover:bg-navy hover:text-white transition-colors">Como Chegar</button>
-                <button className="flex-1 bg-navy text-white py-2 rounded-lg text-xs font-bold hover:bg-gold hover:text-navy transition-colors">WhatsApp</button>
+                <a href={unit.mapLink} target="_blank" rel="noopener noreferrer" className="flex-1 bg-gray-100 text-navy py-2 rounded-lg text-xs font-bold hover:bg-navy hover:text-white transition-colors text-center flex items-center justify-center">Como Chegar</a>
+                <a href="https://wa.me/5571996887151" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white py-2 rounded-lg text-xs font-bold hover:bg-gold hover:text-navy transition-colors text-center flex items-center justify-center">WhatsApp</a>
               </div>
             </div>
           ))}
@@ -557,11 +593,19 @@ const UnitsSection = () => (
 
 const ReviewsMarquee = () => (
   <section className="py-24 bg-white overflow-hidden">
-    <div className="max-w-7xl mx-auto px-4 mb-12 flex flex-col md:flex-row justify-between items-center gap-6">
-      <h2 className="text-4xl font-bold text-navy">O que dizem nossos clientes</h2>
-      <button className="bg-navy text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-gold hover:text-navy transition-colors">
-        <Star size={18} fill="currentColor" /> Deixar avaliação no Google
-      </button>
+    <div className="max-w-7xl mx-auto px-4 mb-12 flex flex-col xl:flex-row justify-between items-center gap-6">
+      <h2 className="text-4xl font-bold text-navy text-center xl:text-left">O que dizem nossos clientes</h2>
+      <div className="flex flex-col sm:flex-row gap-3 w-full xl:w-auto">
+        <a href="https://share.google/PI4yI84drtovjoVLR" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
+          <Star size={16} fill="currentColor" /> Avaliar Lauro de Freitas
+        </a>
+        <a href="https://share.google/FAC60qIEDIhNC1744" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
+          <Star size={16} fill="currentColor" /> Avaliar Bonocô
+        </a>
+        <a href="https://share.google/cNiKf5e2Tyh6Q5MLK" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
+          <Star size={16} fill="currentColor" /> Avaliar Ipitanga
+        </a>
+      </div>
     </div>
 
     <div className="flex animate-marquee gap-6 py-4">
@@ -648,9 +692,9 @@ const Footer = () => (
           A maior rede de lavanderias compartilhadas do Nordeste. Tecnologia, economia e sustentabilidade.
         </p>
         <div className="flex gap-4">
-          <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-gold hover:text-navy transition-all"><Instagram size={20} /></a>
+          <a href="https://www.instagram.com/linklavanderia?igsh=MTVndndxb25rM2F2NQ==" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold hover:text-navy transition-all"><Instagram size={20} /></a>
           <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-gold hover:text-navy transition-all"><Facebook size={20} /></a>
-          <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-gold hover:text-navy transition-all"><MessageCircle size={20} /></a>
+          <a href="https://wa.me/5571996887151" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold hover:text-navy transition-all"><MessageCircle size={20} /></a>
         </div>
       </div>
 
