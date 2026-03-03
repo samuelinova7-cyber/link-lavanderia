@@ -42,9 +42,9 @@ const REVIEWS = [
 ];
 
 const UNITS = [
-  { name: "Lauro de Freitas - Unidade Mercadão da Bahia", address: "Av. Santos Dumont, 1234 - Shopping Link", status: "06:00h às 22:00h", mapLink: "https://share.google/PI4yI84drtovjoVLR" },
-  { name: "Salvador - Unidade Bonocô", address: "Av. Mário Leal Ferreira, 567 - Posto Shell", status: "24 Horas", mapLink: "https://share.google/FAC60qIEDIhNC1744" },
-  { name: "Lauro de Freitas - Unidade Ipitanga", address: "Rua Praia de Ipitanga, 89 - Galeria Mar", status: "06:00h às 22:00h", mapLink: "https://share.google/cNiKf5e2Tyh6Q5MLK" }
+  { name: "Lauro de Freitas - Unidade Mercadão da Bahia", address: "R GILVAN FERNANDES, 434, LOTE 1 2, 15 E 16, Lauro de Freitas - BA, 42700-530", status: "06:00h às 22:00h", mapLink: "https://share.google/K09G8gnwWYYWCR1Ta" },
+  { name: "Lauro de Freitas - Unidade Recreio de Ipitanga", address: "R. Maria Isabel dos Santos, 520 - Loja 02 - Jardim do Jockey, Lauro de Freitas - BA, 42702-440", status: "06:00h às 22:00h", mapLink: "https://share.google/7v6wcRzK7bekHgfNF" },
+  { name: "Salvador - Unidade Bonocô", address: "Posto Mataripe - Av. Mário Leal Ferreira, 2.230 - Brotas, Salvador - BA, 40285-296", status: "24 Horas", mapLink: "https://share.google/FAC60qIEDIhNC1744" }
 ];
 
 const FAQS = [
@@ -596,14 +596,14 @@ const ReviewsMarquee = () => (
     <div className="max-w-7xl mx-auto px-4 mb-12 flex flex-col xl:flex-row justify-between items-center gap-6">
       <h2 className="text-4xl font-bold text-navy text-center xl:text-left">O que dizem nossos clientes</h2>
       <div className="flex flex-col sm:flex-row gap-3 w-full xl:w-auto">
-        <a href="https://share.google/PI4yI84drtovjoVLR" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
+        <a href="https://share.google/K09G8gnwWYYWCR1Ta" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
           <Star size={16} fill="currentColor" /> Avaliar Mercadão da Bahia
+        </a>
+        <a href="https://share.google/7v6wcRzK7bekHgfNF" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
+          <Star size={16} fill="currentColor" /> Avaliar Recreio de Ipitanga
         </a>
         <a href="https://share.google/FAC60qIEDIhNC1744" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
           <Star size={16} fill="currentColor" /> Avaliar Bonocô
-        </a>
-        <a href="https://share.google/cNiKf5e2Tyh6Q5MLK" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
-          <Star size={16} fill="currentColor" /> Avaliar Ipitanga
         </a>
       </div>
     </div>
