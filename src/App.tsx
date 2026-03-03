@@ -43,7 +43,7 @@ const REVIEWS = [
 
 const UNITS = [
   { name: "Lauro de Freitas - Unidade Mercadão da Bahia", address: "R. Maria Isabel dos Santos, 520 - Loja 02 - Jardim do Jockey, Lauro de Freitas - BA, 42702-440", status: "06:00h às 22:00h", mapLink: "https://share.google/7v6wcRzK7bekHgfNF" },
-  { name: "Lauro de Freitas - Unidade Recreio de Ipitanga", address: "R GILVAN FERNANDES, 434, LOTE 1 2, 15 E 16, Lauro de Freitas - BA, 42700-530", status: "06:00h às 22:00h", mapLink: "https://share.google/K09G8gnwWYYWCR1Ta" },
+  { name: "Lauro de Freitas - Unidade Recreio de Ipitanga", address: "R GILVAN FERNANDES, 434, LOTE 1 2, 15 E 16, Lauro de Freitas - BA, 42700-530", status: "06:00h às 22:00h", mapLink: "https://share.google/ps8R8TaJJq2wRIbtP" },
   { name: "Salvador - Unidade Bonocô", address: "Posto Mataripe - Av. Mário Leal Ferreira, 2.230 - Brotas, Salvador - BA, 40285-296", status: "24 Horas", mapLink: "https://share.google/FAC60qIEDIhNC1744" }
 ];
 
@@ -99,8 +99,8 @@ const Navbar = ({ scrolled }: { scrolled: boolean }) => {
     <nav className={`transition-all duration-300 ${scrolled || isOpen ? 'bg-navy py-3 shadow-lg' : 'bg-white/90 backdrop-blur-md py-5 border-b border-gray-100'}`}>
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <span className={`text-2xl font-bold tracking-tighter transition-colors ${scrolled || isOpen ? 'text-white' : 'text-navy'}`}>
-            LINK <span className="text-gold italic font-serif">LAVANDERIA</span>
+          <span className={`text-2xl font-bold font-quicksand tracking-tighter transition-colors ${scrolled || isOpen ? 'text-white' : 'text-navy'}`}>
+            LINK <span className="text-gold font-quicksand font-bold not-italic">LAVANDERIA</span>
           </span>
         </div>
 
@@ -151,7 +151,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50">
+    <header className="fixed top-0 w-full z-50 font-quicksand">
       <div className="bg-navy text-white py-2 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-center overflow-hidden whitespace-nowrap border-b border-white/5">
         <div className="animate-marquee inline-block">
           RÁPIDO • PRÁTICO • ECONÔMICO • PRODUTOS OMO E COMFORT INCLUSOS • UNIDADES 24H E DAS 06H ÀS 22H • RÁPIDO • PRÁTICO • ECONÔMICO • PRODUTOS OMO E COMFORT INCLUSOS • UNIDADES 24H E DAS 06H ÀS 22H •
@@ -599,7 +599,7 @@ const ReviewsMarquee = () => (
         <a href="https://share.google/7v6wcRzK7bekHgfNF" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
           <Star size={16} fill="currentColor" /> Avaliar Mercadão da Bahia
         </a>
-        <a href="https://share.google/K09G8gnwWYYWCR1Ta" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
+        <a href="https://share.google/ps8R8TaJJq2wRIbtP" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
           <Star size={16} fill="currentColor" /> Avaliar Recreio de Ipitanga
         </a>
         <a href="https://share.google/FAC60qIEDIhNC1744" target="_blank" rel="noopener noreferrer" className="flex-1 bg-navy text-white px-4 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors text-sm whitespace-nowrap">
@@ -685,8 +685,8 @@ const Footer = () => (
   <footer className="bg-navy text-white py-20">
     <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12 mb-16">
       <div className="md:col-span-2">
-        <span className="text-3xl font-bold tracking-tighter mb-6 block">
-          LINK <span className="text-gold italic font-serif">LAVANDERIA</span>
+        <span className="text-3xl font-bold font-quicksand tracking-tighter mb-6 block">
+          LINK <span className="text-gold font-quicksand font-bold not-italic">LAVANDERIA</span>
         </span>
         <p className="text-white/50 text-lg max-w-sm mb-8">
           A maior rede de lavanderias compartilhadas do Nordeste. Tecnologia, economia e sustentabilidade.
